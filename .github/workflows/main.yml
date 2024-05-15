@@ -2,7 +2,7 @@ name: Counting Detected Objects in NYC Traffic Cam Footage
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Run every 15 minutes
+    - cron: '0 * * * *' # Run every hour
 
 jobs:
 
@@ -35,4 +35,3 @@ jobs:
       with:
         commit_message: Storing Detected Objects in DB
         file_pattern: detections.db
-        push_options: --force
