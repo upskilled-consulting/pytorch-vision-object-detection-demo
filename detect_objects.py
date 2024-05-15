@@ -41,7 +41,7 @@ def process_camera(camera_name, camera_url):
     # category_info = coco.coco.cats
 
     # Load COCO dataset annotations
-    with open('instances_train2017.json', 'r') as f:
+    with open('./instances_train2017.json', 'r') as f:
         coco_annotations = json.load(f)
     
     # Get category information from COCO dataset annotations
@@ -51,7 +51,7 @@ def process_camera(camera_name, camera_url):
     # model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights='FasterRCNN_ResNet50_FPN_Weights.DEFAULT')
     pth_path = "./fasterrcnn_resnet50_fpn_coco-258fb6c6.pth"
     # Load the model with the pretrained weights from the .pth file
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=False)
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights=None)
     model.load_state_dict(torch.load(pth_path))
     model.eval()
     with torch.no_grad():
@@ -61,10 +61,10 @@ def process_camera(camera_name, camera_url):
     scores = output["scores"]
     boxes = output["boxes"]
     labels = output["labels"]
-    keep = scores > 0.5
-    scores = scores[keep]
-    boxes = boxes[keep]
-    labels = labels[keep]
+    # keep = scores > 0.5
+    # scores = scores[keep]
+    # boxes = boxes[keep]
+    # labels = labels[keep]
 
     # Apply non-maximum suppression to remove redundant bounding boxes
     keep = torchvision.ops.nms(boxes, scores, iou_threshold=0.5)
