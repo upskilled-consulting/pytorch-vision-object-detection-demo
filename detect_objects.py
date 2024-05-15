@@ -35,17 +35,17 @@ def process_camera(camera_name, camera_url):
     image = image.float() / 255.0
         
     # Load COCO dataset annotations
-    # coco = torchvision.datasets.CocoDetection('./', 'instances_train2017.json', transform=None)
+    coco = torchvision.datasets.CocoDetection('./', 'https://github.com/upskilled-consulting/pytorch-vision-object-detection-demo/raw/main/instances_train2017.json', transform=None)
 
     # Get category information from COCO dataset annotations
-    # category_info = coco.coco.cats
+    category_info = coco.coco.cats
 
     # Load COCO dataset annotations
-    with open('./instances_train2017.json', 'r') as f:
-        coco_annotations = json.load(f)
+    # with open('./instances_train2017.json', 'r') as f:
+    #     coco_annotations = json.load(f)
     
     # Get category information from COCO dataset annotations
-    category_info = {cat['id']: cat for cat in coco_annotations['categories']}
+    # category_info = {cat['id']: cat for cat in coco_annotations['categories']}
 
     # Use the image for object detection
     # model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights='FasterRCNN_ResNet50_FPN_Weights.DEFAULT')
