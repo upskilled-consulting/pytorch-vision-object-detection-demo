@@ -23,14 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4 torch torchvision pycocotools
         
-    - name: Download COCO Dataset Annotations
-      run: |
-        wget https://github.com/upskilled-consulting/pytorch-vision-object-detection-demo/raw/main/instances_train2017.json
-        
-    - name: Download Model Weights
-      run: |
-        wget https://github.com/upskilled-consulting/pytorch-vision-object-detection-demo/raw/main/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
-        
     - name: Run Object Detection Script
       run: |
         python detect_objects.py
