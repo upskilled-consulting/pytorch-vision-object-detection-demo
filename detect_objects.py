@@ -43,7 +43,7 @@ def process_camera(camera_name, camera_url):
     # Use the image for object detection
     # model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights='FasterRCNN_ResNet50_FPN_Weights.DEFAULT')
     # pth_path = "./fasterrcnn_resnet50_fpn_coco-258fb6c6.pth"
-    pth_path = 'https://github.com/upskilled-consulting/pytorch-vision-object-detection-demo/raw/main/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth
+    pth_path = 'https://github.com/upskilled-consulting/pytorch-vision-object-detection-demo/raw/main/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth'
     # Load the model with the pretrained weights from the .pth file
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=False)
     model.load_state_dict(torch.load(pth_path))
