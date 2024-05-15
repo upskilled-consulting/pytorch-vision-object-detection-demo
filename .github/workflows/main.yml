@@ -2,7 +2,7 @@ name: Counting Detected Objects in NYC Traffic Cam Footage
 
 on:
   schedule:
-    - cron: '/15 * * * *' # Run every hour at the top of the hour
+    - cron: '*/15 * * * *' # Run every 15 minutes
 
 jobs:
 
