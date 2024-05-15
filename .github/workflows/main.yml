@@ -35,3 +35,4 @@ jobs:
       with:
         commit_message: Storing Detected Objects in DB
         file_pattern: detections.db
+        push_options: --force
